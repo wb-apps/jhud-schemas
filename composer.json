@@ -1,0 +1,44 @@
+{
+  "name": "jhud/schemas",
+  "homepage": "https://schemas.jenniferhudsonshow.com/",
+  "description": "Schemas for all JHUD apps and components.",
+  "type": "pbj-schema-store",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=7.4",
+    "gdbots/schemas": "1.6.7",
+    "triniti/schemas": "1.1.16"
+  },
+  "require-dev": {
+    "composer/composer": "^1.0",
+    "phpunit/phpunit": "^6.4",
+    "gdbots/pbjc": "~0.4"
+  },
+  "autoload": {
+    "files": [
+      "build/php/src/pbj-schemas.php"
+    ],
+    "psr-0": {
+      "": "build/php/src"
+    }
+  },
+  "autoload-dev": {
+    "files": [
+      "pbj-schema-stores.php"
+    ],
+    "psr-0": {
+      "": "build/php/tests"
+    }
+  },
+  "scripts": {
+    "pbjc": [
+      "vendor/bin/pbjc",
+      "git add .",
+      "@test"
+    ],
+    "test": [
+      "vendor/bin/phpunit",
+      "npm test"
+    ]
+  }
+}

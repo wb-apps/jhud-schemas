@@ -1,2 +1,4 @@
-# jhud-schemas
-Schemas for all The Jennifer Hudson Show apps and components. 
+JHUD Schemas
+========
+
+Schemas for all JHUD apps and components. [Browse the json schemas.](https://schemas.jenniferhudsonshow.com/)

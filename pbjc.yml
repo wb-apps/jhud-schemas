@@ -1,0 +1,26 @@
+domain: https://schemas.jenniferhudsonshow.com
+
+namespaces:
+  - jhud:apollo
+  - jhud:boost
+  - jhud:canvas
+  - jhud:curator
+  - jhud:dam
+  - jhud:iam
+  - jhud:news
+  - jhud:notify
+  - jhud:ovp
+  - jhud:people
+  - jhud:sys
+  - jhud:taxonomy
+
+languages:
+  php:
+    output: ./build/php/src
+
+  js:
+    output: ./build/js/src
+
+  json-schema:
+    include_all: true
+    output: ./gh-pages/json-schema
