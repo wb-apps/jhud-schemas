@@ -1,11 +1,10 @@
 // @link https://schemas.jenniferhudsonshow.com/json-schema/jhud/canvas/block/eme-form-block/1-0-0.json#
-import Message from '@gdbots/pbj/Message';
-import MessageResolver from '@gdbots/pbj/MessageResolver';
-import Schema from '@gdbots/pbj/Schema';
-import TrinitiCanvasBlockV1Mixin from '@triniti/schemas/triniti/canvas/mixin/block/BlockV1Mixin';
-import TrinitiCanvasBlockV1Trait from '@triniti/schemas/triniti/canvas/mixin/block/BlockV1Trait';
-import TrinitiCanvasEmeFormBlockV1Mixin from '@triniti/schemas/triniti/canvas/mixin/eme-form-block/EmeFormBlockV1Mixin';
-import TrinitiCanvasEmeFormBlockV1Trait from '@triniti/schemas/triniti/canvas/mixin/eme-form-block/EmeFormBlockV1Trait';
+import Fb from '@gdbots/pbj/FieldBuilder.js';
+import Message from '@gdbots/pbj/Message.js';
+import Schema from '@gdbots/pbj/Schema.js';
+import T from '@gdbots/pbj/types/index.js';
+import TrinitiCanvasBlockV1Mixin from '@triniti/schemas/triniti/canvas/mixin/block/BlockV1Mixin.js';
+import TrinitiCanvasEmeFormBlockV1Mixin from '@triniti/schemas/triniti/canvas/mixin/eme-form-block/EmeFormBlockV1Mixin.js';
 
 export default class EmeFormBlockV1 extends Message {
   /**
@@ -14,18 +13,59 @@ export default class EmeFormBlockV1 extends Message {
    * @returns {Schema}
    */
   static defineSchema() {
-    return new Schema('pbj:jhud:canvas:block:eme-form-block:1-0-0', EmeFormBlockV1,
-      [],
+    return new Schema(this.SCHEMA_ID, this,
       [
-        TrinitiCanvasBlockV1Mixin.create(),
-        TrinitiCanvasEmeFormBlockV1Mixin.create(),
+        Fb.create('etag', T.StringType.create())
+          .maxLength(100)
+          .pattern('^[\\w\\.:-]+$')
+          .build(),
+        /*
+         * In rendering environments that support HTML the css_class
+         * can be appended to the dom elements' class attribute.
+         */
+        Fb.create('css_class', T.StringType.create())
+          .pattern('^[\\w\\s-]+$')
+          .build(),
+        /*
+         * Represents an update that occurred on the node this block
+         * is attached to. DOES NOT indicate an update to the block itself.
+         * eg an article with a twitter block with updated_date means that
+         * the article was updated to include that twitter block.
+         */
+        Fb.create('updated_date', T.DateTimeType.create())
+          .build(),
+        /*
+         * When true it means this block represents a portion of a document
+         * whose content is only indirectly related to the document's main content.
+         * Asides are frequently presented as sidebars or call-out boxes.
+         */
+        Fb.create('aside', T.BooleanType.create())
+          .build(),
+        Fb.create('form_ref', T.NodeRefType.create())
+          .required()
+          .build(),
+        Fb.create('expires_at', T.DateTimeType.create())
+          .build(),
       ],
+      this.MIXINS,
     );
   }
 }
 
-TrinitiCanvasBlockV1Trait(EmeFormBlockV1);
-TrinitiCanvasEmeFormBlockV1Trait(EmeFormBlockV1);
-MessageResolver.register('jhud:canvas:block:eme-form-block', EmeFormBlockV1);
-Object.freeze(EmeFormBlockV1);
-Object.freeze(EmeFormBlockV1.prototype);
+const M = EmeFormBlockV1;
+M.prototype.SCHEMA_ID = M.SCHEMA_ID = 'pbj:jhud:canvas:block:eme-form-block:1-0-0';
+M.prototype.SCHEMA_CURIE = M.SCHEMA_CURIE = 'jhud:canvas:block:eme-form-block';
+M.prototype.SCHEMA_CURIE_MAJOR = M.SCHEMA_CURIE_MAJOR = 'jhud:canvas:block:eme-form-block:v1';
+M.prototype.MIXINS = M.MIXINS = [
+  'triniti:canvas:mixin:block:v1',
+  'triniti:canvas:mixin:block',
+  'triniti:canvas:mixin:eme-form-block:v1',
+  'triniti:canvas:mixin:eme-form-block',
+];
+
+TrinitiCanvasBlockV1Mixin(M);
+
+TrinitiCanvasEmeFormBlockV1Mixin(M);
+
+Object.freeze(M);
+Object.freeze(M.prototype);
