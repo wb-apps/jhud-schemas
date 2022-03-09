@@ -1,0 +1,140 @@
+{
+  "id": "https://schemas.jenniferhudsonshow.com/json-schema/triniti/ovp.kaltura/flavor/1-0-0.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_schema": {
+      "type": "string",
+      "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
+      "default": "pbj:triniti:ovp.kaltura::flavor:1-0-0"
+    },
+    "entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "flavor_params_id": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "width": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "height": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "bitrate": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "frame_rate": {
+      "type": "number",
+      "default": 0
+    },
+    "is_original": {
+      "type": "boolean"
+    },
+    "is_web": {
+      "type": "boolean"
+    },
+    "container_format": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "video_codec_id": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "is_default": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "tags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "created_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "updated_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "size": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "file_ext": {
+      "type": "string",
+      "pattern": "^[\\w\\.-]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+    }
+  },
+  "required": [
+    "_schema"
+  ],
+  "additionalProperties": false
+}

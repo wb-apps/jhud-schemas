@@ -1,0 +1,326 @@
+{
+  "id": "https://schemas.jenniferhudsonshow.com/json-schema/triniti/ovp.kaltura/entry/1-0-0.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_schema": {
+      "type": "string",
+      "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
+      "default": "pbj:triniti:ovp.kaltura::entry:1-0-0"
+    },
+    "entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535
+    },
+    "partner_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "user_id": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "creator_id": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255
+    },
+    "tags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "categories": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "categories_ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[\\w-]+$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "categories_normalized": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        -2,
+        -1,
+        "virusScan.ScanFailure",
+        0,
+        "virusScan.Infected",
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "moderation_status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        -1,
+        "conference.CONFERENCE_ENTRY_SERVER",
+        "externalMedia.externalMedia",
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        10
+      ]
+    },
+    "created_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "updated_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "rank": {
+      "type": "number",
+      "default": 0
+    },
+    "flavor_params_ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "integer",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "data_url": {
+      "type": "string",
+      "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+    },
+    "download_url": {
+      "type": "string",
+      "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+    },
+    "version": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "thumbnail_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "thumbnail_created_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "thumbnail_ext": {
+      "type": "string",
+      "pattern": "^[\\w\\.-]+$"
+    },
+    "thumbnail_url": {
+      "type": "string",
+      "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+    },
+    "start_date": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "end_date": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "reference_id": {
+      "type": "string",
+      "pattern": "^[\\w\\.:,\\/-]+$"
+    },
+    "replacing_entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "replaced_entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "redirect_entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "root_entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "parent_entry_id": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "display_in_search": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        -1,
+        0,
+        1,
+        2
+      ]
+    },
+    "plays": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "views": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "last_played_at": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "width": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "height": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "duration": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "duration_ms": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 16777215
+    },
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        1,
+        2,
+        5,
+        201,
+        202,
+        203,
+        204
+      ]
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "limeLight.LIVE_STREAM",
+        "velocix.VELOCIX_LIVE",
+        1,
+        2,
+        5,
+        6,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        42
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 65535
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "_schema"
+  ],
+  "additionalProperties": false
+}
